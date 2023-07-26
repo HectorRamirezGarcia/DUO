@@ -1,4 +1,4 @@
-# IT-Challenge Style Guide
+# DUO Style Guide
 
 ## Table of Contents
 
@@ -8,12 +8,6 @@
 2. [**WORK PROCEDURES**](#2-work-procedures)\
    2.1 [First things to do in the project](#21-first-things-to-do-in-the-project)\
    2.2 [Git configurations](#22-git-configurations)\
-   2.3 [Daily Procedure](#23-daily-procedure)\
-   2.4 [Work with cards Procedure](#24-work-with-cards-procedure)\
-    2.4.1 [Assigning yourself a task-card](#241-assigning-yourself-a-task-card)
-    2.4.2 [Working on a task](#242-working-on-a-class)
-    2.4.3 [Pull request](#243-pull-requests)
-   2.5 [Scrum metodology](#25-scrum-metodology)
 
 3. [**CODING GUIDELINES**](#3-definitions-of-method,-class,-etc...)
    
@@ -35,7 +29,7 @@
 ## 1.1 Project links
 - [GITHUB](https://github.com/HectorRamirezGarcia/DUO)
 - [Frontend Sprint Backlog](https://github.com/users/HectorRamirezGarcia/projects/1/views/2)
-- [Figma]()
+- [Figma](https://www.figma.com/file/me6M8lyBDUSHaDTmqiu7RQ/Duo?type=design&t=ml9x3NbWUlGQYmgp-6)
 
 ----------------------------------------------------------------
 
@@ -48,10 +42,10 @@
 
 1. Clone the Github repository ita-challenges-frontend in your local system:
 
-         git clone https://github.com/IT-Academy-BCN/ita-challenges-frontend.git
+         git clone https://github.com/HectorRamirezGarcia/DUO.git
 2. Move to the directory of the cloned repository:
 
-         cd ita-challenges-frontend
+         cd duo-frontend
 3. You can verify the available branches and your current branch by running the following command:
 
          git branch
@@ -110,82 +104,6 @@ The autocrlf setting handles line-ending differences between different operating
 
 5. Alternative solutions: While enabling autocrlf is a common approach, there are alternative methods to handle line-ending differences. These include using the .gitattributes file or manually adjusting line endings. Consider the specific needs of your project and choose the approach that best suits your requirements.
 
-
-----------------------------------------------------------------
-
-
-## 2.3 Daily Procedure
-1. Connect to [Teams](https://teams.microsoft.com/dl/launcher/launcher.html?url=%2F_%23%2Fl%2Fmeetup-join%2F19%3Ameeting_ZTJlZjdhOTYtYWUwNy00OTI3LWEyZjYtZjM1ZjM2NjY3Njky%40thread.v2%2F0%3Fcontext%3D%257b%2522Tid%2522%253a%252211d22a1f-a84d-4849-b1a4-28cec13827da%2522%252c%2522Oid%2522%253a%2522a91a5c8e-8f8c-48e4-8cd7-521e17afef93%2522%257d%26anon%3Dtrue&type=meetup-join&deeplinkId=996a8ae7-6337-409e-96d6-dfbbef2e2131&directDl=true&msLaunch=true&enableMobilePage=true&suppressPrompt=true) at 9:15 AM: Discuss difficulties and blockers.
-2. Switch to the 'develop' branch (git switch develop) and perform a 'git pull'.
-3. Switch to your working branch (git switch your-branch-name) and merge with 'develop':
-
-        git merge develop
-4. Coffee break at around 10:30 AM aprox.
-5. At least once a day, execute 'git push origin your-branch-name'. Remember, you can set a default upstream branch in your local repository to easily push changes with 'git push':
-
-        git push --set-upstream origin your-branch-name
-        
-IMPORTANT: It is expected that everyone on the project is online with their cameras turned on from 9:15 AM to 1:15 PM to work as a team (unless there are justifiable circumstances).
-
-----------------------------------------------------------------
-
-## 2.4 Work with cards Procedure
-### 2.4.1 Assigning yourself a task-card
-- The project has been planned in several stages called ["Epic"](https://github.com/orgs/IT-Academy-BCN/projects/13).
-
-- Each Epic is further divided into "tasks", which are generally created by the mentor. To organize the task distribution, this [dashboard](https://github.com/orgs/IT-Academy-BCN/projects/16/views/1) with four columns is used:
-    - ToDo: includes tasks that have not yet been started. All tasks (cards) start here.
-    - Doing: tasks that are in progress.
-    - Testing: tasks that have been completed and need to be reviewed by the mentor.
-    - Done: tasks that have been reviewed, approved, and merged into the develop branch by the mentor.
-
-- Each participant needs to assign themselves a task card (by clicking on the card title > Add assignee > clicking the user's name) that is not assigned to anyone and move it to the "Doing" column (by dragging and dropping). In exceptional cases, the participant can create a task (below the columns, "+Add Item"); they should then provide a title and, optionally but recommended, a description and labels.
-
-- The tasks on the dashboard are actually "Issues" on Github. Therefore, these Issues can have labels (such as "Epic3", "Design", "Testing") that help provide an idea of the task's content.
-
-### 2.4.2 Working on a task
--Once you have a task assigned, you will need to create a new branch dedicated exclusively to that task. The branch name format should always be "feature/#X", where "X" is the task number (which can be found at the end of the task title). For example, if your task is number 101, you would create a branch named "feature/#101".
-
-The typical flow is as follows:
-- Create a branch, make changes and commit:
-
-        git switch -c branchName (e.g., git switch -c feature/#101)
-        git add .
-        git commit -m "Commit message"
-- As mentioned, the first time you push your branch to the remote repository you can set an upstream branch:
-
-        git push --set-upstream origin branchName
-- And then, everytime you need to push changes to the remote repository:
-
-        git push
-
- - (Alternatively, you can omit --set-upstream and always simply use "git push origin branchName".)
-
-There isn't a set way to do commits. You can follow the style of "conventional commits" (there is an extension in VSCode that can assist you with them): [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). In any case, it is important that your commits are descriptive, clearly indicating where the change was made and what it consists of.
-
-### 2.4.3 Pull requests
-1. Once you have finished working on your feature branch, you are almost ready to make the Pull request (PR). Before doing so, pull the last changes of the remote develop branch and merge them into your feature branch (see 2.3 Daily Procedure)
-
-2. Make sure to run the tests: "npm test" (also, you can run "npm test:watch" whenever you start working on the code to quickly catch any issues).
-
-3. Push the branch to the remote and ensure that automatic tests (like SonarCloud) pass: you will be notified of the results of the tests right after pushing. If your PR doesn't pass the test, review the log messages to find and solve the problems before you try a new PR. In that case, remember to pull and push again.
-
-4. Create a PR: Go to GitHub, and usually, if you have recently pushed changes, you will see a message like "There are recent changes in the feature-/#X branch, create a PR." If not, go to "Pull requests" > "New pull request" and select "develop > your-branch" > "Create pull request". Add a clear and concise description of the changes you have made.
-
-5. After doing the PR, you will see red-highlighted messages indicating that the merge cannot be done until someone approves the PR. This is normal, as the mentor needs to review and approve it.
-
-6. Once the PR is created, go to the bottom right and click on "Develop" to link the PR to the corresponding Issue (task).
-
-7. Go to the [dashboard](https://github.com/orgs/IT-Academy-BCN/projects/16/views/1) with the four columns. You will see that the task card you just completed has a reference to the corresponding PR. Move the card to the "Testing" column.
-
-----------------------------------------------------------------
-
-## 2.5 Scrum metodology
-https://scrumguides.org/
--Daily online meetings to discuss difficulties
--Biweekly in-person meeting (Thursday)
--Ocasional reviews with the client
--Work by Epics > Tasks (Sprints)
 
 ----------------------------------------------------------------
 
