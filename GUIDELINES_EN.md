@@ -6,7 +6,7 @@
    1.1 [Project's Links](#11-project-links) 
 
 2. [**WORK PROCEDURES**](#2-work-procedures)\
-   2.1 [First things to do in the project](#21-first-things-to-do-in-the-project)\
+   2.1 [First things to do in the project](#21-first-things-to-do-in-the-project)
    2.2 [Git configurations](#22-git-configurations)\
 
 3. [**CODING GUIDELINES**](#3-definitions-of-method,-class,-etc...)
